@@ -127,26 +127,8 @@ def generateM3U8(file):
     file.close()
     print("Build m3u8 success.")
 
-def generateTXT(file):
-    file=open(file, "w")
-    for k, v in m.items():
-        line = '%s,#genre#\n' % (k)
-        file.write(line)
-
-        for c in v:
-            line = '%s,%s/rtp/%s\n' % (c["name"], homeLanAddress, c["address"])
-            if "ct" not in c:
-                line = '%s,%s\n' % (c["name"], c["address"])
-
-            file.write(line)
-
-    file.close()
-    print("Build txt success.")
-
-
 def generateHome():
     generateM3U8("./iptv/iptv.m3u8")
-    generateTXT("./iptv/iptv.txt")
 
 mIcons = loadIcon()
 
