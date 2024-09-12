@@ -37,6 +37,4 @@ jobs:
         with:
           commit_message: "Update iptv.m3u8"
           branch: main
-          file_pattern: |
-            ./playlist/iptv-lan.m3u8
-            ./playlist/iptv-wan.m3u8
+          file_pattern: ./playlist/
