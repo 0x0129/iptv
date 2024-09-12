@@ -2,14 +2,12 @@ name: iptv
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "00 19 * * *"
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -39,6 +37,6 @@ jobs:
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Automated build: Update m3u8"
+          commit_message: "Update iptv.m3u8"
           branch: main
           file_pattern: './iptv/iptv.m3u8'
