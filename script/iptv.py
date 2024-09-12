@@ -84,7 +84,7 @@ def findIcon(m, id):
 
 def loadIcon():
     res = requests.get(sourceIcon51ZMT).content
-
+    m=[]
     soup = BeautifulSoup(res, 'lxml')
 
     for tr in soup.find_all('tr'):
