@@ -16,12 +16,9 @@ jobs:
           fetch-depth: 0
 
       - name: Pull
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "0x648+github-actions[bot]@users.noreply.github.com"
-          git pull origin main
+        run: git pull origin main
 
-      - name: Set up Python 3.9
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
@@ -29,12 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
-          pip install m3u8
-          pip install bs4
-          pip install lxml
-          pip install html5lib
-          pip install strict-rfc3339
+          pip install requests m3u8 bs4 lxml html5lib strict-rfc3339
 
       - name: Build
         run: |
