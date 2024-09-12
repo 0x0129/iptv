@@ -7,7 +7,7 @@ import strict_rfc3339
 sourceIcon51ZMT = "http://epg.51zmt.top:8000"
 sourceChengduMulticast = "http://epg.51zmt.top:8000/sctvmulticast.html"
 homeLanAddress = "http://192.168.100.1:7088"
-homeWanAddress = "http://china-telecom.ie.cx:7099"
+homeWanAddress = "http://china-telecom.ie.cx:7088"
 
 groupCCTV = ["CCTV", "CETV", "CGTN"]
 groupWS = ["卫视"]
