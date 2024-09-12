@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import strict_rfc3339
 
-
 sourceIcon51ZMT = "http://epg.51zmt.top:8000"
 sourceChengduMulticast = "http://epg.51zmt.top:8000/sctvmulticast.html"
-homeLanAddress = "http://china-telecom.ie.cx:7088"
+homeLanAddress = "http://192.168.100.1:7088"
+homeWanAddress = "http://china-telecom.ie.cx:7088"
 
 groupCCTV = ["CCTV", "CETV", "CGTN"]
 groupWS = ["卫视"]
@@ -58,7 +58,7 @@ def loadIcon():
     
     return m
 
-def generateM3U8(filename, m):
+def generateM3U8(filename, m, homeAddress):
     with open(filename, "w") as file:
         name = f'成都电信 IPTV - {strict_rfc3339.now_to_rfc3339_utcoffset()}'
         title = f'#EXTM3U name="{name}" url-tvg="http://epg.51zmt.top:8000/e.xml,https://epg.112114.xyz/pp.xml"\n\n'
@@ -70,17 +70,18 @@ def generateM3U8(filename, m):
                     continue
                 if "ct" in c:
                     line = f'#EXTINF:-1 tvg-logo="{c["icon"]}" tvg-id="{c["id"]}" tvg-name="{c["name"]}" group-title="{k}",{c["name"]}\n'
-                    line2 = f'{homeLanAddress}/rtp/{c["address"]}\n'
+                    line2 = f'{homeAddress}/rtp/{c["address"]}\n'
                 else:
                     line = f'#EXTINF:-1 tvg-id="{getID()}" tvg-name="{c["name"]}" group-title="{k}",{c["name"]}\n'
                     line2 = f'{c["address"]}\n'
                 file.write(line)
                 file.write(line2)
 
-    print("Build m3u8 success.")
+    print(f"Build {filename} success.")
 
 def generateHome(m):
-    generateM3U8("./playlist/iptv-wan.m3u8", m)
+    generateM3U8("./playlist/iptv-lan.m3u8", m, homeLanAddress)
+    generateM3U8("./playlist/iptv-wan.m3u8", m, homeWanAddress)
 
 def main():
     mIcons = loadIcon()
