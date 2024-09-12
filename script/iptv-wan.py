@@ -7,7 +7,7 @@ import strict_rfc3339
 
 sourceIcon51ZMT = "http://epg.51zmt.top:8000"
 sourceChengduMulticast = "http://epg.51zmt.top:8000/sctvmulticast.html"
-homeLanAddress = "http://192.168.100.1:7088"
+homeLanAddress = "http://china-telecom.ie.cx:7088"
 
 groupCCTV = ["CCTV", "CETV", "CGTN"]
 groupWS = ["卫视"]
@@ -80,7 +80,7 @@ def generateM3U8(filename, m):
     print("Build m3u8 success.")
 
 def generateHome(m):
-    generateM3U8("./iptv/iptv.m3u8", m)
+    generateM3U8("./playlist/iptv-wan.m3u8", m)
 
 def main():
     mIcons = loadIcon()
