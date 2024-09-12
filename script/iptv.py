@@ -5,7 +5,6 @@ from urllib.parse import urljoin
 import strict_rfc3339
 
 
-sourceTvboxIptv = "https://raw.githubusercontent.com/gaotianliuyun/gao/master/list.txt"
 sourceIcon51ZMT = "http://epg.51zmt.top:8000"
 sourceChengduMulticast = "http://epg.51zmt.top:8000/sctvmulticast.html"
 homeLanAddress = "http://192.168.100.1:7088"
@@ -27,30 +26,6 @@ def setID(i):
     if i >= index:
         index = i + 1
     return index
-
-def checkChannelExist(listIptv, channel):
-    return any(isIn(k, channel) for k in listIptv)
-
-def appendOnlineIptvFromTvbox(listIptv):
-    onlineIptv = requests.get(sourceTvboxIptv).content
-    lines = onlineIptv.splitlines()
-    
-    group = None  # Keeps track of current group
-    for line in lines:
-        line = line.decode('utf-8')
-        groupMatch = re.search(r'(.+),#genre#', line)
-        if groupMatch:
-            group = groupMatch.group(1)
-            listIptv.setdefault(group, [])
-            continue
-        if group == "YouTube":
-            continue
-
-        v = line.split(',')
-        if checkChannelExist(listIptv, v[0]):
-            listIptv[group].append({"id": getID(), "name": v[0], "address": v[1], "dup": True})
-        else:
-            listIptv[group].append({"id": getID(), "name": v[0], "address": v[1]})
 
 def isIn(items, v):
     return any(item in v for item in items)
@@ -125,13 +100,12 @@ def main():
 
         setID(int(td[0].string))
 
-        name = re.sub(r'超高清|高清|-', '', name).strip()  # Combined string cleaning
+        name = re.sub(r'超高清|高清|-', '', name).strip()
         group = filterCategory(name)
         icon = findIcon(mIcons, name)
 
         m.setdefault(group, []).append({"id": td[0].string, "name": name, "address": td[2].string, "ct": True, "icon": icon})
 
-    appendOnlineIptvFromTvbox(m)
     generateHome(m)
 
 if __name__ == "__main__":
