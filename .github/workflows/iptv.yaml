@@ -15,6 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Pull
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "0x648+github-actions[bot]@users.noreply.github.com"
+          git pull origin main
+
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
