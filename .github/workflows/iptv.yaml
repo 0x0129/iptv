@@ -40,7 +40,7 @@ jobs:
       - name: Commit
         run: |
           git config --global user.name '0x648'
-          git config --global user.email 'xzai0313@qq.com'
+          git config --global user.email '0x648@github.com'
           git add .
           git commit -am "Automated build"
           git push
