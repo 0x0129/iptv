@@ -30,9 +30,9 @@ jobs:
           pip install html5lib
           pip install strict-rfc3339
 
-      - name: Build home
+      - name: Build
         run: |
-          python3 ./script/iptv.py
+          python3 ./script/iptv-wan.py
 
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
