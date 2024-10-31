@@ -1,4 +1,4 @@
-#EXTM3U name="成都电信 IPTV - 2024-10-30T19:11:33Z" url-tvg="http://epg.51zmt.top:8000/e.xml,https://epg.112114.xyz/pp.xml"
+#EXTM3U name="成都电信 IPTV - 2024-10-31T19:09:50Z" url-tvg="http://epg.51zmt.top:8000/e.xml,https://epg.112114.xyz/pp.xml"
 
 #EXTINF:-1 tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" tvg-id="1" tvg-name="CCTV1" group-title="CCTV",CCTV1
 http://192.168.100.1:4022/rtp/239.93.0.58:5140
@@ -176,6 +176,8 @@ http://192.168.100.1:4022/rtp/239.93.1.172:5140
 http://192.168.100.1:4022/rtp/239.93.1.178:5140
 #EXTINF:-1 tvg-logo="" tvg-id="197" tvg-name="i成都" group-title="四川",i成都
 http://192.168.100.1:4022/rtp/239.93.1.104:1234
+#EXTINF:-1 tvg-logo="" tvg-id="216" tvg-name="四川省首届“蜀乡村歌”大赛总决赛" group-title="四川",四川省首届“蜀乡村歌”大赛总决赛
+http://192.168.100.1:4022/rtp/239.93.42.59:5140
 #EXTINF:-1 tvg-logo="" tvg-id="23" tvg-name="精彩导视" group-title="其他",精彩导视
 http://192.168.100.1:4022/rtp/239.93.1.39:5140
 #EXTINF:-1 tvg-logo="" tvg-id="50" tvg-name="中国交通" group-title="其他",中国交通
@@ -372,7 +374,5 @@ http://192.168.100.1:4022/rtp/239.93.42.69:5140
 http://192.168.100.1:4022/rtp/239.93.42.68:5140
 #EXTINF:-1 tvg-logo="" tvg-id="215" tvg-name="云演艺宣传" group-title="其他",云演艺宣传
 http://192.168.100.1:4022/rtp/239.93.42.60:5140
-#EXTINF:-1 tvg-logo="" tvg-id="216" tvg-name="创新及人才文化节" group-title="其他",创新及人才文化节
-http://192.168.100.1:4022/rtp/239.93.42.59:5140
 #EXTINF:-1 tvg-logo="" tvg-id="217" tvg-name="华西证券" group-title="其他",华西证券
 http://192.168.100.1:4022/rtp/239.93.0.69:5140
